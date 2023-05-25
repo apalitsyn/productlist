@@ -1,0 +1,25 @@
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  body {
+      background-color: @white;
+      margin: 0 auto;
+      position: relative;
+      font-size: @font-M;
+  }
+  
+  img {
+      width: 100%; 
+  }
+  
+  .content {
+      background-color: @white;
+      &__wrapper {
+          max-width: @maxwidth;
+          padding: @gutter;
+          margin: @gutter auto;
+      }
+  }

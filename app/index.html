@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PLP - product listing page</title>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header__wrapper">
+        <h1 class="header__title">Header</h1>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="content__wrapper content__wrapper--product-list">
+        <section class="product-list__actions">
+          <span class="sort-by">View as: </span>
+          <span class="sort-by__option js-toggle-view">
+            <span class="switch-view switch-view--selected">
+              Grid
+            </span> / 
+            <span class="switch-view">
+              List
+            </span>
+          </span>
+        </section>
+
+        <section class="product-list__actions">
+          <span class="sort-by">Filter by size: </span>
+          <span class="sort-by__option js-filter" data-prop="size" data-val="S - Small">S - Small</span>,
+          <span class="sort-by__option js-filter" data-prop="size" data-val="M - Medium">M - Medium</span>,
+          <span class="sort-by__option js-filter" data-prop="size" data-val="L - Large">L - Large</span>,
+          <span class="sort-by__option js-filter" data-prop="size" data-val="XL - Extra large">XL - Extra large</span>
+        </section>
+        
+        <section class="product-list__actions">
+          <span class="sort-by">Sort by: </span>
+          <span class="sort-by__option js-sortBy" data-prop="name" data-asc="true">Name</span>, 
+          <span class="sort-by__option js-sortBy" data-prop="price" data-asc="true">Price (ascending)</span>, 
+          <span class="sort-by__option js-sortBy" data-prop="price" data-asc="false">Price (descending)</span>
+        </section>
+
+        <section class="product-list__actions">
+          <span class="sort-by__option js-reset"><strong>RESET</strong></span>
+        </section>
+
+        <section id="js-product-list" class="product-list__wrapper product-list__wrapper--flex">
+          
+        </section>
+
+        <script id="js-product-list-template" type="text/ractive">
+          {{#each products:key}}
+            <article class="product-card">
+              <div class="product-card__image">
+                <img src="{{picture}}" alt="{{name}}">
+                <div class="product-card__fav product-card__fav--{{isFav}}"></div>
+              </div>
+              <div class="product-card__details">
+                <a href="{{url}}" class="product-card__title" title="{{name}}">{{name}}</a>
+                <div class="product-card__size">
+                  {{size}} 
+                  <span class="product-card__rating product-card__rating--{{rating}}">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </span>
+                </div>
+                <div class="product-card__price">
+                  {{price}}
+
+                  {{#if oldPrice}}
+                    <span class="product-card__price--old">{{oldPrice}}</span>
+                  {{/if}}
+                  {{#if savings}}
+                    <span class="product-card__price--savings">You save {{savings}}</span> 
+                  {{/if}}
+                </div>
+              </div>
+            </article>
+          {{/each}}
+        </script>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__wrapper">
+        <h3 class="footer__title">Footer</h3>
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/ractive.js"></script>
+    <script type="text/javascript" src="js/products.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
+
+</html>

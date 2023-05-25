@@ -1,0 +1,36 @@
+.product-list {
+	&__actions {
+		padding: 0 @gutter @gutter;
+		.sort-by__option {
+			cursor: pointer;
+		}
+	}
+	&__wrapper {
+		padding: @gutter 0;
+		
+        &--flex {
+            @media (min-width: 641px) {
+                .flex-display();
+                .flex-flow(@flow: row wrap);
+            }
+        }
+	}
+}
+
+.sort-by {
+	font-size: @font-S;
+	font-weight: 700;
+	&__option {
+		font-size: @font-S;
+		font-weight: 300;
+		&--selected {
+            text-decoration: underline;
+            color: @dark-pink;
+		}
+	}
+}
+
+.switch-view--selected {
+    text-decoration: underline;
+    color: @dark-pink;
+}
